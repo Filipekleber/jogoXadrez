@@ -1,155 +1,86 @@
 #include <stdio.h>
 
+//Movimento da torre
+void movimentotorre(int n){
+    if(n > 0){
+        printf("Direita\n");
+    }
+    movimentotorre(n - 1);
+}
+
+void movimentoBispo(int n){
+    if(n > 0){
+        printf("Diagonal\n");
+    }
+    movimentoBispo(n - 1);
+}
+
+void movimentoRainha(int n){
+    if(n > 0){
+        printf("Esquerda\n");
+    }
+    movimentoRainha(n - 1);
+}
+
 int main(){
 
-    char opcao, opcaoTorre, opcaoBispo, opcaoRainha;
-    int movimentacao = 1;
+int movimentacao = 1;
+char opcao;
 
-    printf("Escolha uma peça para movimentar\n");
-    printf("T. Torre\n");
-    printf("B. Bispo\n");
-    printf("R. Rainha\n");
-    printf("Escolha uma da opções: ");
-    scanf(" %c", &opcao);
+printf("Escolha uma das pecas para mover: \n");
+printf("T. Torre\n");   
+printf("B. Bispo\n"); 
+printf("R. Rainha\n"); 
+printf("C. Cavalo\n"); 
+printf("Escolha uma das opcao: "); 
+scanf("%c", &opcao);
 
-switch (opcao)
-{
+switch(opcao){
 
-//Função da torre;
-//------------------------------------------------------------------------------------
+
 case 'T':
 case 't':
 
-//Escolhendo se vai para horizontal ou para frontal;
+printf("A torre vai se mover: \n");
+movimentotorre(5);
 
-    
-    printf("Escolha para onde ele vai?\n");
-    printf("D. Direita\n");
-    printf("E. Esquerda\n");
-    printf("Escolha uma das opcoes: ");
-    scanf(" %c", &opcaoTorre);
-    
-//----------------------------------------------------------------------------------
-
-    switch (opcaoTorre)
-    {
-    case 'D':
-    case 'd':
-
-    while (movimentacao <= 5)
-    {
-        printf("Direita\n");
-        movimentacao++;
-    }
-    
-    break;
-
-//----------------------------------------------------------------------------------
-
-    case 'E':
-    case 'e':
-
-    while (movimentacao <= 5)
-    {
-        printf("Esquerda\n");
-        movimentacao++;
-    }
-    break;
-
-    default:
-    printf("Opcao invalida\n");
-        break;
-    }
-//Fim do comando da Torre;
-//--------------------------------------------------------------------------------------
+break;
 
 case 'B':
 case 'b':
 
-    printf("Escolha para qual diagonal seu bisto vai?\n");
-    printf("D. Diagonal Direita\n");
-    printf("E. Diagonal Esquerda\n");
-    printf("Escolha uma da opções: ");
-    scanf(" %c", &opcaoBispo);
-
-switch (opcaoBispo)
-{
-case 'D':
-case 'd':
-    do
-    {
-        printf("Diagonal Direita\n");
-        movimentacao++;
-    } while (movimentacao <= 5);
-    
-    break;
-
-//----------------------------------------------------------------------------------------
-
-case 'E':
-case 'e':
-    do
-    {
-        printf("Diagonal Esquerdo\n");
-        movimentacao++;
-    } while (movimentacao <= 5);
-    
-break;
-
-default:
-    printf("Opcao invalida\n");
-    break;
-}
+printf("O bispo vai se mover: \n");
+movimentoBispo(8);
 
 break;
-//FIM DO COMANDO BISPO
-//---------------------------------------------------------------------------------------------
 
 case 'R':
 case 'r':
 
-    printf("Para qual lado voce quer mover a rainha?\n");
-    printf("D. Direito\n");
-    printf("E. Esquerdo\n");
-    printf("Escolha uma da opções: ");
-    scanf(" %c", &opcaoRainha);
-
-    switch (opcaoRainha)
-    {
-    case 'D':
-    case 'd':
-
-        for(movimentacao; movimentacao <= 8; movimentacao++)
-        {
-            printf("Direita\n");
-        }
-        
-        break;
-
-//--------------------------------------------------------------------------------------------
-
-        case 'E':
-        case 'e':
-
-        for(movimentacao; movimentacao <= 8; movimentacao++)
-        {
-            printf("Esquerda\n");
-        }
-        
-        break;
-    
-    default:
-        printf("Opcao invalida\n");
-        break;
-    }
+printf("A rainha vai se movar: \n");
+movimentoRainha(8);
 
 break;
-//FIM DO COMANDO RAINHA
-//-----------------------------------------------------------------------------------------------
 
-default:
-        printf("Opcao invalida\n");
-    break;
+case 'C':
+case 'c':
+
+while (movimentacao--){
+        for(int i = 2; i >= 1; i--){
+            printf("Cima\n");
+        }
+    printf("Direita\n");
+    printf("\n");
 }
 
+break;
+
+
+default:
+    printf("Opcao invalida\n");
+break;
+}
+
+
+    return 0;
 }
